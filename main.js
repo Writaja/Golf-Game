@@ -30,12 +30,12 @@ function load_img(){
 function new_image()
 {
 	fabric.Image.fromURL("ball.png" , function (Img){
-		hole_obj=Img;
-		hole_obj.scaleToWidth(50);
-		hole_obj.scaleToHeight(50);
-		hole_obj.set({
-			top:hole_y,
-			left:hole_x
+		ball_obj=Img;
+		ball_obj.scaleToWidth(50);
+		ball_obj.scaleToHeight(50);
+		ball_obj.set({
+			top:ball_y,
+			left:ball_x
 		} );
 		canvas.add(ball_obj);
 	} );
@@ -80,9 +80,9 @@ function my_keydown(e)
 	{
 		if(ball_y >=450)
 		{
-			ball_y=ball_y-block_image_height;
-			console.log("block image heignt= "-block_image_height)
-			console.log("when Up arrow key is pressed,x = " -ball_x- ", Y ="-ball_y);
+			ball_y=ball_y+block_image_width;
+			console.log("block image width= "+block_image_width)
+			console.log("when Up arrow key is pressed,y = " +ball_y+ ", X ="+ball_x);
 			canvas.remove(ball_obj);
 			new_image();
 		}
@@ -124,9 +124,9 @@ function my_keydown(e)
 		{
 			
 		{
-			ball_y=ball_y+block_image_width;
-			console.log("block image heignt= "+block_image_width)
-			console.log("when Up arrow key is pressed,x = " +ball_x+ ", Y ="+ball_y);
+			ball_x=ball_x+block_image_height;
+			console.log("block image height= "+block_image_height)
+			console.log("when Right arrow key is pressed,x = " +ball_x+ ", Y ="+ball_y);
 			canvas.remove(ball_obj);
 			new_image();
 		}
